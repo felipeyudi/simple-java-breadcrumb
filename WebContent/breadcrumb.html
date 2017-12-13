@@ -1,0 +1,15 @@
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	
+	$.get('breadcrumb', function(response) {
+		var html = "";
+		for (var index in response) {
+			html += "<a href='"+response[index].path+"?"+response[index].param+"&index="+index+"'>"+response[index].id+"</a> >> ";
+		}
+		$('#div-breadcrumb').html(html);
+	});
+});
+
+</script>
+<div id="div-breadcrumb"></div>
